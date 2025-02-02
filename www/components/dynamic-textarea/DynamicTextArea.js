@@ -64,7 +64,7 @@ export class DynamicTextArea extends HTMLElement {
         this.#paragraph.innerText = this.#textarea.value;
         showEl(this.#paragraph, true);
         showEl(this.#textarea, false);
-        changed && this.dispatchEvent(new Event(DynamicTextArea.UPDATED));
+        changed && this.dispatchEvent(new Event(DynamicTextArea.UPDATED, {bubbles: true}));
     }
 
 }
