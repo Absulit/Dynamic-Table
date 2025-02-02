@@ -94,8 +94,9 @@ export class DynamicTable extends HTMLElement {
      */
     addHeader = val => {
         const tr = document.createElement('tr');
-        val.forEach(item => {
+        val.forEach( (item, i) => {
             const th = document.createElement('th');
+            th.classList.add(`col${i}`);
             th.innerText = item;
             tr.append(th);
         })
@@ -110,15 +111,15 @@ export class DynamicTable extends HTMLElement {
      */
     addRow = val => {
         const tr = document.createElement('tr');
-        val.forEach(item => {
+        val.forEach( (item, i) => {
             const th = document.createElement('th');
+            th.classList.add(`col${i}`);
             th.append(item);
             tr.append(th);
         })
         this.#tbody.append(tr);
         return tr;
     }
-
 }
 
 customElements.define('dynamic-table', DynamicTable);

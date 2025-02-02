@@ -28,6 +28,7 @@ function showEl(el, val) {
 }
 
 export class DynamicTextArea extends HTMLElement {
+    static UPDATED = 'UPDATED';
     #paragraph
     #textarea
     constructor() {
@@ -59,9 +60,11 @@ export class DynamicTextArea extends HTMLElement {
     }
 
     onTextAreaLosesFocus = e => {
+        const changed = this.#paragraph.innerText !== this.#textarea.value;
         this.#paragraph.innerText = this.#textarea.value;
         showEl(this.#paragraph, true);
         showEl(this.#textarea, false);
+        changed && this.dispatchEvent(new Event(DynamicTextArea.UPDATED));
     }
 
 }
