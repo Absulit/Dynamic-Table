@@ -30,7 +30,7 @@ template.innerHTML = /*html*/`
     }
 
     tbody>tr:nth-of-type(even) {
-        background-color: rgb(237 238 242);
+        background-color: rgb(10 10 10);
     }
 
     tfoot th {
