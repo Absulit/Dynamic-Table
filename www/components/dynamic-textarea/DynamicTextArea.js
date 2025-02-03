@@ -52,6 +52,13 @@ export class DynamicTextArea extends HTMLElement {
         this.#paragraph.innerText = val;
     }
 
+    /**
+     * @returns {string}
+     */
+    get text(){
+        return this.#paragraph.innerText;
+    }
+
     onDoubleClickParagraph = e => {
         this.#textarea.value = this.#paragraph.innerText;
         showEl(this.#paragraph, false);
